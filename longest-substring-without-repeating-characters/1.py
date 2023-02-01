@@ -8,6 +8,7 @@ O(n)의 시간 복잡도로 풀어야 한다는 것이 관건
 복잡도 O(n)인 이유 -> 중복체크는 해시를 써버리면 되니까 O(1), 순회의 경우 최악의경우 end는 원본 문자열 끝까지 n번, start 또한 원본 문자열 끝까지 n번 가기 떄문에 2n이므로 O(n)
 루프 이전 혹은 이후에 한번 더 로직을 실행시켜야 할 것 같다. 끝부분에서 에러가 남
 '''
+
 '''
 pwpwkew -> pwke
 [pw]pwkew
@@ -35,7 +36,6 @@ class Solution:
     
     def decreaseCount(self, counts, char):
         counts[char] -= 1
-        
 
     def lengthOfLongestSubstring(self, s: str) -> int:
         if len(s) == 0:
@@ -47,16 +47,18 @@ class Solution:
 
         self.increaseCount(counts, s[end - 1])
         while end <= len(s):
-            print(s[start:end], s)
-            print(counts)
-            print('before test')
+            #print(s[start:end], s, start, end)
+            #print(counts)
+            #print('before test')
             if self.doesRepeat(counts):
-                print('does repeat')
+                #print('does repeat')
                 self.decreaseCount(counts, s[start])
                 start += 1
             else:
-                print('does not repeat')
+                #print('does not repeat')
                 max_len = max(max_len, len(s[start:end]))
                 end += 1
+                if end > len(s): break
                 self.increaseCount(counts, s[end - 1])
+
         return max_len
