@@ -19,7 +19,7 @@ pw[pwkew]
 pwp[wkew]
 pwpw[kew]
 '''
-
+'''
 class Solution:
     def doesRepeat(self, counts):
         for char in counts:
@@ -53,8 +53,8 @@ class Solution:
                     self.increaseCount(counts, s[end - 1])
 
         return max_len
-
 '''
+
 class Solution:
     def lengthOfLongestSubstring(self, s: str) -> int:
         seen = {}
@@ -78,4 +78,4 @@ class Solution:
                     l = seen[s[r]] + 1
             seen[s[r]] = r
         return output
-'''
+
